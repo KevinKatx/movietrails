@@ -1,0 +1,190 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.bgvid{
+    height: 100vh;
+    width: 100%;
+    z-index: 0;
+}
+
+
+video {
+    height: 100%; /* Take full height of the container */
+    width: 100%; /* Take full width of the container */
+    object-fit: cover; /* Ensure video scales properly without distortion */
+    position: absolute; /* Align video to cover the div */
+    top: 0;
+    left: 0;
+}
+
+#topnav{
+    position: fixed;
+    z-index: 2;
+    background: linear-gradient(to bottom, rgb(0, 0, 0), rgba(0, 0, 0, 0));
+    background-color: rgba(0, 0, 0, 0);
+    animation: gradientanimUNDO 0.3s ease-in-out;
+}
+
+#topnav.scrolled{
+    background: linear-gradient(to bottom, rgb(0, 0, 0), rgb(26, 25, 25));
+    background-color: rgb(26, 25, 25); /* Solid color when scrolled */
+    animation: gradientanim 0.5s ease-in-out;
+}
+
+.topnav{
+    padding: 10px 10px 10px 60px;
+}
+
+.logo{
+    margin-top: -10px;
+    margin-bottom: 10px;
+    margin-right: 40px;
+}
+
+
+
+.topnavlinks{
+    font-size: 15px;
+    color: rgb(255, 255, 255);
+}
+
+
+.topnavlinks:hover{
+    color: rgb(167, 166, 166);
+}
+
+.carousel-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+/* Initially, set the elements off-screen */
+.slide-in {
+    opacity: 0;
+    transform: translateX(-100%);
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards; /* Keeps the final state after the animation ends */
+}
+
+/* Keyframes for slide-in animation */
+@keyframes slide-in-animation {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* When the active class is added, the animation will trigger */
+.slide-in.active {
+    animation-name: slide-in-animation;
+}
+
+/* Optional: delay for the second element */
+
+
+
+
+
+.movie-carousel {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    gap: 15px;
+    padding: 10px 0;
+    width: 100%;
+   
+}
+
+.movie-item {
+    flex: 0 0 auto; /* Prevents items from shrinking or growing */
+    width: 180px; /* Set the width of each movie poster */
+    cursor: pointer;
+}
+
+.movie-item img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.movie-carousel::-webkit-scrollbar {
+    display: none; /* Hides the scrollbar for a clean look */
+}
+
+/* Navigation Buttons */
+.carousel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.carousel-nav.left {
+    left: -10px;
+}
+
+.carousel-nav.right {
+    right: -10px;
+}
+
+.carousel-nav:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+#featured {
+    display: flex;
+    justify-content: center; /* Horizontally center */
+    align-items: center;     /* Vertically center */
+    height: 100px;           /* Optional: Full viewport height */
+    text-align: center;      /* Centers inline text */
+}
+
+.featuredCont {
+    font-size: 2rem; /* Optional styling for visibility */
+    font-weight: bold;
+    color: #000000;     /* Optional: Text color */
+}
+
+@keyframes gradientanim {
+    from {
+        background: linear-gradient(to bottom, rgb(0, 0, 0), rgba(0, 0, 0, 0));
+        background-color: rgba(0, 0, 0, 0);
+    }
+    to {
+        background: linear-gradient(to bottom, rgb(0, 0, 0), rgb(26, 25, 25));
+        background-color: rgb(26, 25, 25); /* Solid color when scrolled */
+    }
+}
+
+@keyframes gradientanimUNDO {
+    from {
+        background: linear-gradient(to bottom, rgb(0, 0, 0), rgb(26, 25, 25));
+        background-color: rgb(26, 25, 25); /* Solid color when scrolled */
+    }
+    to {
+        background: linear-gradient(to bottom, rgb(0, 0, 0), rgba(0, 0, 0, 0));
+        background-color: rgba(0, 0, 0, 0);
+        
+    }
+}
+
